@@ -32,6 +32,7 @@ window.setInterval(function(){
 
 $('#messageSubmit').on('click', function(event) {
   var message = $('#messageInput').val();
+  $('#messageInput').val('');
   console.log("Button pressed with value: " + message);
   var encodedMessage = encodeURIComponent(message);
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username=Fangfang&message="+encodedMessage+"&expireafter=60");
