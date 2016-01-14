@@ -30,9 +30,18 @@ window.setInterval(function(){
   });
 }, 1000);
 
+$("#messageInput").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#messageSubmit").click();
+    }
+});
+
 $('#messageSubmit').on('click', function(event) {
   var message = $('#messageInput').val();
   $('#messageInput').val('');
   var encodedMessage = encodeURIComponent(message);
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username=Fangfang&message="+encodedMessage+"&expireafter=60");
 });
+
+$("#messages").addClass('scroll');
+$("#messages").scroll();

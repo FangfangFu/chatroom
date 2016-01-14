@@ -1,3 +1,21 @@
 .redtitle {
     color: red;
 }
+
+.scroll {
+    border:1px solid black;
+    width:500px;
+    height:500px;
+    overflow:scroll;
+}
+
+#messageInput {
+    border:1px solid blue;
+    width:420px;
+    height:20px;
+}
+
+#messageSubmit {
+    width: 80px;
+    height: 20px;
+}
