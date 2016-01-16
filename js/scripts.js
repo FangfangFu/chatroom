@@ -1,5 +1,3 @@
-$('#title').addClass('redtitle');
-
 var json = {
    "room":{
       "name":"FangDev",
@@ -33,7 +31,7 @@ window.setInterval(function(){
     removeMessages();
     showMessages(messages);
     if (newMessagesLength > messageLength){
-        $("#messages").scrollTop($("#messages").height()*2);
+        $("#messages").scrollTop($("#messages ul").height());
     }
     messageLength = messages.length;
   });

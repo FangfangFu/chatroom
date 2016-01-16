@@ -1,6 +1,5 @@
 body {
-    background: #886451;
-    
+    background: #886451;  
 }
 
 .center {
@@ -11,13 +10,18 @@ body {
     margin-top: 30px;
 }
 .chatBox {
-    
+    background: #885159;
 }
 header {
-    background-color: #645188, url("images/background.JPG");
+    background-color: ;
 }
-.redtitle {
-    color: red;
+#title {
+  text-align: center;
+  color: white;
+} 
+#chatroom {
+  text-align: center; 
+  color: #645188;
 }
 
 .scroll {
@@ -35,14 +39,20 @@ header {
 }
 
 #messageSubmit {
-    width: 80px;
-    height: 20px;
-    margin-top: 0px;
+    width: 120px;
+    height: 30px;
+    float: right;
 }
 
 .messageBox {
    border: 2px solid black;
 }
+
+#messages {
+    background-color: #528881;
+    color: white;
+}
 .inputBox {
     background-color: white;
+    overflow: hidden;
 }
