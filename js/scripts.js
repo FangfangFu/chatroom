@@ -11,6 +11,8 @@ var json = {
    }
 };
 
+var username = 'Guest';
+
 function removeMessages(){
     $('#messages').find('li').remove();
 }
@@ -23,7 +25,7 @@ function showMessages(messages){
 }
 
 window.setInterval(function(){
-  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username=Fangfang&expireafter=60", function( json ) {
+  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username="+username+"&expireafter=60", function( json ) {
     var messages = json.room.messages;
     removeMessages();
     showMessages(messages);
@@ -40,7 +42,7 @@ $('#messageSubmit').on('click', function(event) {
   var message = $('#messageInput').val();
   $('#messageInput').val('');
   var encodedMessage = encodeURIComponent(message);
-  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username=Fangfang&message="+encodedMessage+"&expireafter=60");
+  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/FangDev?username="+username+"&message="+encodedMessage+"&expireafter=60");
 });
 
 $("#messages").addClass('scroll');
