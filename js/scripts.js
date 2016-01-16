@@ -12,7 +12,8 @@ var json = {
 };
 
 var username = 'guest';
-var chatroom = 'Flower'
+var chatroom = 'FangDev';
+var messageLength = 0;
 
 function removeMessages(){
     $('#messages').find('li').remove();
@@ -28,9 +29,13 @@ function showMessages(messages){
 window.setInterval(function(){
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&expireafter=60", function( json ) {
     var messages = json.room.messages;
+    var newMessagesLength = messages.length;
     removeMessages();
     showMessages(messages);
-    $("#messages").scrollTop($("#messages").height()*2);
+    if (newMessagesLength > messageLength){
+        $("#messages").scrollTop($("#messages").height()*2);
+    }
+    messageLength = messages.length;
   });
 }, 1000);
 
@@ -45,6 +50,7 @@ $('#messageSubmit').on('click', function(event) {
   $('#messageInput').val('');
   var encodedMessage = encodeURIComponent(message);
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&message="+encodedMessage+"&expireafter=60");
+  $("#messages").scrollTop($("#messages").height()*2);
 });
 
 $("#messages").addClass('scroll');
@@ -71,6 +77,7 @@ $("#chatroomInput").keyup(function(event){
 $('#chatroomSubmit').on('click', function(event) {
   chatroom = encodeURIComponent($('#chatroomInput').val());
   $('#chatroom').text(chatroom);
+  messageLength = 0;
   $('#chatroomInput').val('');
 });
 
