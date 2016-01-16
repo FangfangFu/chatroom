@@ -68,6 +68,6 @@ $("#chatroomInput").keyup(function(event){
 
 $('#chatroomSubmit').on('click', function(event) {
   chatroom = encodeURIComponent($('#chatroomInput').val());
-  $('#chatroom').append(chatroom);
+  $('#chatroom').text(chatroom);
   $('#chatroomInput').val('');
 });
