@@ -20,7 +20,7 @@ function removeMessages(){
 
 function showMessages(messages){
     var arrayLength = messages.length;
-    for (var i = 0; i < arrayLength; i++) {
+    for (var i = arrayLength-1; i >= 0; i--) {
         $('#messages').find('ul').append('<li>' + messages[i] + '</li>');
     } 
 }
@@ -30,6 +30,7 @@ window.setInterval(function(){
     var messages = json.room.messages;
     removeMessages();
     showMessages(messages);
+    $("#messages").scrollTop($("#messages").height()*2);
   });
 }, 1000);
 
@@ -48,6 +49,7 @@ $('#messageSubmit').on('click', function(event) {
 
 $("#messages").addClass('scroll');
 $("#messages").scroll();
+
 
 $("#usernameInput").keyup(function(event){
     if(event.keyCode == 13){
@@ -71,3 +73,4 @@ $('#chatroomSubmit').on('click', function(event) {
   $('#chatroom').text(chatroom);
   $('#chatroomInput').val('');
 });
+
