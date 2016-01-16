@@ -11,7 +11,7 @@ var json = {
    }
 };
 
-var username = 'Guest';
+var username = 'guest';
 
 function removeMessages(){
     $('#messages').find('li').remove();
@@ -47,3 +47,14 @@ $('#messageSubmit').on('click', function(event) {
 
 $("#messages").addClass('scroll');
 $("#messages").scroll();
+
+$("#usernameInput").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#usernameSubmit").click();
+    }
+});
+
+$('#usernameSubmit').on('click', function(event) {
+  username = encodeURIComponent($('#usernameInput').val());
+  $('#usernameInput').val('');
+});
