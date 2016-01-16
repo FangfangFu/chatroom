@@ -53,10 +53,6 @@ $('#messageSubmit').on('click', function(event) {
   $("#messages").scrollTop($("#messages").height()*2);
 });
 
-$("#messages").addClass('scroll');
-$("#messages").scroll();
-
-
 $("#usernameInput").keyup(function(event){
     if(event.keyCode == 13){
         $("#usernameSubmit").click();

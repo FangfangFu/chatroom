@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
+  <title>Fangfang Chat Room</title>
+  <meta name="description" content="Fangfang Chat Room">
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="css/styles.css">
@@ -14,17 +14,25 @@
 </head>
 
 <body>
-  <h1 id='title'>Chatroom Client V1.0</h1>
-  <h2 id='chatroom'>FangDev</h2>
-  Chatroom: <input id='chatroomInput' type="text" name="chatroomInput" value="">
-            <input id='chatroomSubmit' type="submit" value="Submit"><br>
-  Username: <input id='usernameInput' type="text" name="usernameInput" value="">
-            <input id='usernameSubmit' type="submit" value="Submit">
-  <div id='messages'>
-      <ul></ul>
-  </div>
-  <input id='messageInput' type="text" name="messagesInput" value="">
-  <input id='messageSubmit' type="submit" value="Submit">
+    <div class='chatBox center'>
+        <header>
+            <h1 id='title'>Chatroom Client V1.0</h1>
+            <h2 id='chatroom'>FangDev</h2>
+            Chatroom: <input id='chatroomInput' type="text" name="chatroomInput" value="">
+                        <input id='chatroomSubmit' type="submit" value="Submit"><br>
+            Username: <input id='usernameInput' type="text" name="usernameInput" value="">
+                        <input id='usernameSubmit' type="submit" value="Submit">
+        </header>
+        <div class='messageBox'>
+            <div id='messages' class='scroll'>
+                <ul></ul>
+            </div>
+            <div class='inputBox'>
+                <textarea id='messageInput' rows="5" cols="20"></textarea><br>
+                <input id='messageSubmit' type="submit" value="Submit">
+            </div>
+        </div>
+    </div>
     
     
     
