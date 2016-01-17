@@ -11,10 +11,10 @@ body {
 }
 .chatBox {
     background: #885159;
+    color: contrast(var(#885159));
+    font-size: 20px;
 }
-header {
-    background-color: ;
-}
+
 #title {
   text-align: center;
   color: white;
@@ -56,3 +56,4 @@ header {
     background-color: white;
     overflow: hidden;
 }
+
