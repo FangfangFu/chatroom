@@ -8,6 +8,7 @@
   <meta name="description" content="Fangfang Chat Room">
   <meta name="author" content="SitePoint">
 
+  <link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
   <link rel="stylesheet" href="css/styles.css">
 
 
@@ -22,14 +23,19 @@
                         <input id='chatroomSubmit' type="submit" value="Submit"><br>
                 Username: <input id='usernameInput' type="text" name="usernameInput" value="">
                         <input id='usernameSubmit' type="submit" value="Submit">
-            </p>
         </header>
         <div class='messageBox'>
-            <div id='messages' class='scroll'>
-                <ul></ul>
+            <div class="container_16">
+                <div id='messages' class='scroll grid_13'>
+                    <ul></ul>
+                </div>
+                <div id='members' class='scroll grid_3'>
+                    <ul></ul>
+                </div>
             </div>
+            
             <div class='inputBox'>
-                <textarea id='messageInput' rows="5" cols="20"></textarea><br>
+                <textarea id='messageInput'></textarea><br>
                 <input id='messageSubmit' type="submit" value="Submit">
             </div>
         </div>

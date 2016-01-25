@@ -12,15 +12,16 @@ var json = {
 var username = 'guest';
 var chatroom = 'FangDev';
 var messageLength = 0;
+var memberLength = 0;
 
-function removeMessages(){
-    $('#messages').find('li').remove();
+function remove(id){
+    $(id).find('li').remove();
 }
 
-function showMessages(messages){
-    var arrayLength = messages.length;
+function show(id, argu1){
+    var arrayLength = argu1.length;
     for (var i = arrayLength-1; i >= 0; i--) {
-        $('#messages').find('ul').append('<li>' + messages[i] + '</li>');
+        $(id).find('ul').append('<li>' + argu1[i] + '</li>');
     } 
 }
 
@@ -28,12 +29,22 @@ window.setInterval(function(){
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&expireafter=60", function( json ) {
     var messages = json.room.messages;
     var newMessagesLength = messages.length;
-    removeMessages();
-    showMessages(messages);
+    var members = json.room.members.split(",");
+    var newMembersLength = members.length;
+    
+    remove('#messages'); 
+    show('#messages', messages);
     if (newMessagesLength > messageLength){
         $("#messages").scrollTop($("#messages ul").height());
     }
     messageLength = messages.length;
+    
+    remove('#members');
+    show('#members', members);
+    if (newMembersLength > memberLength){
+        $("#members").scrollTop($("#members ul").height());
+    }
+    memberLength = members.length;
   });
 }, 1000);
 
