@@ -1,7 +1,7 @@
 var json = {
    "room":{
       "name":"FangDev",
-      "members":"Salgat:1452401384430,Fangfang2:1452401457085",
+      "members":"Salgat:1452401384430,Fangfang2:1452401457085,",
       "messages":[
          "Salgat: I love you more xiaobei",
          "Fangfang: I love you Laobei"
@@ -10,7 +10,7 @@ var json = {
 };
 
 var username = 'guest';
-var chatroom = 'FangDev';
+var chatroom = 'flower';
 var messageLength = 0;
 var memberLength = 0;
 
@@ -25,11 +25,21 @@ function show(id, argu1){
     } 
 }
 
+function updateArray_show(id, array){
+    var arrayLength = array.length;
+    for (var i = 0; i < arrayLength; i++) {
+        if (array[i] != ""){
+            array[i] = array[i].split(":")[0];
+            $(id).find('ul').append('<li>' + array[i] + '</li>');
+        }
+    }
+}
+
 window.setInterval(function(){
   $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&expireafter=60", function( json ) {
     var messages = json.room.messages;
     var newMessagesLength = messages.length;
-    var members = json.room.members.split(",");
+    var members = json.room.members.split(","); //"test:2121," = "test:3241", ""
     var newMembersLength = members.length;
     
     remove('#messages'); 
@@ -39,8 +49,9 @@ window.setInterval(function(){
     }
     messageLength = messages.length;
     
+ 
     remove('#members');
-    show('#members', members);
+    updateArray_show('#members', members);
     if (newMembersLength > memberLength){
         $("#members").scrollTop($("#members ul").height());
     }
