@@ -10,7 +10,7 @@ function remove(id){
 
 function show(id, argu1){
     var arrayLength = argu1.length;
-    for (var i = arrayLength-1; i >= 0; i--) {
+    for (var i = 0; i < arrayLength; i++) {
         $(id).find('ul').append('<li>' + argu1[i] + '</li>');
     } 
 }
