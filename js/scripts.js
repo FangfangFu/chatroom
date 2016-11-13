@@ -26,7 +26,7 @@ function updateArray_show(id, array){
 }
 
 window.setInterval(function(){
-  $.post( "http://server.fufangfang.com:56000/api/v1/chatroom/"+chatroom+"?username="+username+"&expireafter=300", function( json ) {
+  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&expireafter=300", function( json ) {
     var messages = json.room.messages;
     var newMessagesLength = messages.length;
     var members = json.room.members.split(","); //"test:2121," = "test:3241", ""
@@ -59,7 +59,7 @@ $('#messageSubmit').on('click', function(event) {
   var message = $('#messageInput').val();
   $('#messageInput').val('');
   var encodedMessage = encodeURIComponent(message);
-  $.post( "http://server.fufangfang.com:56000/api/v1/chatroom/"+chatroom+"?username="+username+"&message="+encodedMessage+"&expireafter=300");
+  $.post( "http://singleendpointchatserver.herokuapp.com/api/v1/chatroom/"+chatroom+"?username="+username+"&message="+encodedMessage+"&expireafter=300");
   $("#messages").scrollTop($("#messages").height()*2);
 });
 
