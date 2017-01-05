@@ -1,6 +1,6 @@
 //Chatroom website
 var username = 'guest';
-var chatroom = 'flower';
+var chatroom = 'PublicRoom';
 var messageLength = 0;
 var memberLength = 0;
 
